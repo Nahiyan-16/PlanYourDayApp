@@ -1,0 +1,16 @@
+.loginContainer{
+    text-align: center;
+    border: 1px solid red;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.usernameContainer{
+    margin: 10px 0;
+}
+
+.passwordContainer{
+    margin: 10px 0;
+}

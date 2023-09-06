@@ -1,16 +1,81 @@
+.loginPageMainContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .loginContainer{
     text-align: center;
-    border: 1px solid red;
-    height: 50vh;
+    height: 65vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    background-color: #2F4858;
+    width: 40%;
+    color: aliceblue;
+    box-shadow: 3px 3px 3px black;
+    transition: all 250ms;
+    border-radius: 50px;
 }
 
-.usernameContainer{
-    margin: 10px 0;
+.loginContainer:hover{
+    box-shadow: 5px 5px 5px black;
 }
 
-.passwordContainer{
-    margin: 10px 0;
+.credInputContainer{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 5px 0;
+    border-bottom: 1px solid rgb(240, 248, 255, 0.75);
+}
+
+.credInputContainer label{
+    align-self: flex-start;
+    margin: 0 0 5px 0;
+    font-size: 0.85rem;
+}
+
+.credInputContainer input{
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+}
+
+.credInputContainer input::placeholder{
+    color: rgb(240, 248, 255, 0.75);
+}
+
+.loginBtnContainer button{
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #2F4858;
+    font-size: 1.25rem;
+    font-family: inherit;
+    box-shadow: 2px 2px 2px black;
+}
+
+.loginBtnContainer button:hover{
+    cursor: pointer;
+    transition: all 250ms;
+    box-shadow: 4px 4px 4px black;
+}
+
+.forgotPassBtn{
+    border: none;
+    background-color:transparent;
+    color: rgb(240, 248, 255, 0.5);
+    font-size: 0.65rem;
+    margin:0 -98px 10px 0;
+}
+
+.forgotPassBtn:hover{
+    color: rgb(240, 248, 255, 1);
+    cursor: pointer;
+    text-decoration: underline;
 }

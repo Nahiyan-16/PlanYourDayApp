@@ -1,13 +1,14 @@
-import { useState } from 'react';
 import './loginPage.css'
 
-import getLogin from './getLogin';
+import LoginSection from './loginSection';
+import SignUpSection from '../SignUpPage/signUpSection'
 
 function Login() {
 
   return (
-    <div>
-      <getLogin/>
+    <div className="loginPageMainContainer">
+      <LoginSection />
+      <SignUpSection />
     </div>
   );
 }

@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(()=>{
-    const storedUser = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('signedIn');
 
     if(storedUser) {
       const parsedUser = JSON.parse(storedUser);
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
         <header className='headerContainer'>
-          <h1>Plan Your Day</h1>
+          <h1>Plan Your Day!</h1>
           <FormattedDate/>
         </header>
         <main>

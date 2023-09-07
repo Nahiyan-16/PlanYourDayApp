@@ -1,11 +1,14 @@
 import './signUpPage.css'
+import { Link } from "react-router-dom";
 
 function SignUpSection(){
     return(
         <div className="signUpContainer">
             <h1>New Here?</h1>
-            <p>Ready to Create Your Daily Task Companion?</p>
-            <button>Sign Up</button>
+            <p>Create Your Daily Task Companion!</p>
+            <Link to='/SignUp'>
+                <button>Sign Up</button>
+            </Link>
         </div>
         )
 }

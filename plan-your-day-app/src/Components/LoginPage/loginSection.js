@@ -1,30 +1,32 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import './loginPage.css'
 
 function LoginSection(){
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleLogin = () => {   
-        if (username === 'user' && password === 'password') {
-        localStorage.setItem('signedIn', true);
-        window.location.reload();
+    const handleLogin = () => {
+        if (email === 'user@user.com' && password === 'password') {
+            localStorage.setItem('signedIn', true);
+            window.location.reload();
+            return (<Link to="/home"></Link>)
         } else {
-        setErrorMessage('Invalid username or password.');
-    }
+            setErrorMessage('Invalid email or password.');
+        }
     };
 
     return(
         <div className="loginContainer">
             <h1>Login</h1>
             <div className='credInputContainer'>
-                <label>Username</label>
+                <label>Email</label>
                 <input
                     type="text"
-                    value={username}
-                    placeholder='😀 Type your username'
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={email}
+                    placeholder='📧 Type your email'
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div className="credInputContainer">

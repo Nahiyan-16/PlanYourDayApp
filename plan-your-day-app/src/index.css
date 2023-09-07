@@ -5,9 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #D4F2DB;
+  background-color: rgb(253, 251, 240);
   color: #2F4858;
   height: 97vh;
+  background-image: url('./Images/rocket.png');
+  background-size: cover;
+  background-position: center;
+  text-shadow: 1px 1px 1px black;
 }
 
 code {

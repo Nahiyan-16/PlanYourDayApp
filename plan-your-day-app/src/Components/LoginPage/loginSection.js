@@ -8,7 +8,7 @@ function LoginSection(){
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogin = () => {
-        if (email === 'user@user.com' && password === 'password') {
+        if (email === 'user@user.com' && password === 'pass') {
             localStorage.setItem('signedIn', true);
             window.location.reload();
             return (<Link to="/home"></Link>)
@@ -19,11 +19,10 @@ function LoginSection(){
 
     return(
         <div className="loginContainer">
-            <h1>Login</h1>
             <div className='credInputContainer'>
                 <label>Email</label>
                 <input
-                    type="text"
+                    type="email"
                     value={email}
                     placeholder='📧 Type your email'
                     onChange={(e) => setEmail(e.target.value)}
@@ -38,7 +37,8 @@ function LoginSection(){
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
-            <button className="forgotPassBtn">Forgot Password?</button>
+            <Link to="/forgot-password" className="forgotPassBtn">   Forgot Password?
+            </Link>
             <div className="loginBtnContainer">
                 <button onClick={handleLogin}>Login</button>
             </div>

@@ -6,9 +6,7 @@ function SignUpSection(){
         <div className="signUpContainer">
             <h1>New Here?</h1>
             <p>Create Your Daily Task Companion!</p>
-            <Link to='/SignUp'>
-                <button>Sign Up</button>
-            </Link>
+            <Link to={'/signup'} className='signUpBtn'>Sign Up</Link>
         </div>
         )
 }

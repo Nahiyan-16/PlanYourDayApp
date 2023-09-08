@@ -1,0 +1,38 @@
+.textshadow{
+    text-shadow: 1px 1px 1px black;
+}
+
+.textshadow::placeholder{
+    color: rgb(240, 248, 255);
+    text-shadow: 1px 1px 1px black;
+}
+
+.textshadow:-webkit-autofill,
+.textshadow:-webkit-autofill:hover, 
+.textshadow:-webkit-autofill:focus, 
+.textshadow:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: aliceblue;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.text-opacity-8{
+    opacity: 0.8;
+}
+
+.text-opacity-8:hover{
+    opacity: 1;
+}
+
+.text-shadow-md {
+    text-shadow: 1px 1px 1px black;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.no-underline:hover {
+    text-decoration: underline;
+}
+

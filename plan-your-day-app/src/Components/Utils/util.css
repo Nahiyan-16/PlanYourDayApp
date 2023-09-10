@@ -1,10 +1,5 @@
-.textshadow{
-    text-shadow: 1px 1px 1px black;
-}
-
-.textshadow::placeholder{
-    color: rgb(240, 248, 255);
-    text-shadow: 1px 1px 1px black;
+.placeholder::placeholder{
+    color: #2f4858;
 }
 
 .textshadow:-webkit-autofill,
@@ -12,7 +7,7 @@
 .textshadow:-webkit-autofill:focus, 
 .textshadow:-webkit-autofill:active{
     -webkit-background-clip: text;
-    -webkit-text-fill-color: aliceblue;
+    -webkit-text-fill-color: #2f4858;
     transition: background-color 5000s ease-in-out 0s;
 }
 

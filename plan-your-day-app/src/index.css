@@ -9,12 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(253, 251, 240);
-  color: aliceblue;
+  background-color: aliceblue;
+  color: #2f4858;
   height: 97vh;
-  background-image: url('./Images/2.jpg');
-  background-size: cover;
-  background-position: center;
 }
 
 code {

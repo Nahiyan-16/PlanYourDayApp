@@ -3,8 +3,7 @@
 import {useState, useEffect} from 'react'
 
 import LoginSection from './loginSection';
-import SignUpSection from '../SignUpPage/signUpSection'
-import FormattedDate from '../Utils/FormattedDate';
+import SideHeader from '../Header/sideHeader'
 import Home from '../MainPage/home';
 
 function Login() {
@@ -20,18 +19,15 @@ function Login() {
   }, [])
 
   return (
-    <div className="h-screen text-center flex flex-col justify-start pt-[50px]">
-      <header className='text-aliceblue text-3xl mb-10 text-shadow-md'>
-        <h1 className='mb-5 text-[4rem]'>Plan Your Day!</h1>
-        <FormattedDate/>
-      </header>
-    <main>
-      {user ? (<Home />) :
-      <div className="flex justify-center">
-        <LoginSection />
-        <SignUpSection />
-      </div>}
-    </main>
+    <div className="h-screen text-center flex justify-start">
+      <SideHeader />
+      <main className="w-[30%]">
+        {user ? (<Home />) :
+        <div className="flex justify-center">
+          <LoginSection />
+        </div>}
+      </main>
+
       
     </div>
   );

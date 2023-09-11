@@ -22,10 +22,9 @@ function Login() {
     <div className="h-screen text-center flex justify-start">
       <SideHeader />
       <main className="w-[30%]">
-        {user ? (<Home />) :
         <div className="flex justify-center">
           <LoginSection />
-        </div>}
+        </div>
       </main>
 
       

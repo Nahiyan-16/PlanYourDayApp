@@ -18,14 +18,15 @@ function ForgotPasswordPage(){
     };
   
     return (
-      <div className="h-screen text-center flex justify-start">
+      <div className="h-screen text-center flex justify-start xs:flex-col">
         <SideHeader />
-        <div className="text-center flex items-center h-[50vh] flex-col justify-center w-[30%] h-screen shadow-[inset_0_0_15px_5px_rgba(0,0,0,0.5)]">
-            <h2 className="mb-10 text-5xl">Forgot Password</h2>
+        <div className="text-center flex items-center h-[50vh] flex-col w-[30%] justify-center h-screen 
+        shadow-[inset_0_0_15px_5px_rgba(0,0,0,0.5)] custom-screen-3:w-[100%] custom-screen-2:w-[50%]">
+            <h2 className="mb-10 text-5xl p-[2rem]">Forgot Password</h2>
             <p className="text-base">Enter your email to reset your password</p>
             <form onSubmit={handleSubmit}>
             <div className="text-left flex flex-col align-center mt-2.5 mb-1.5 
-                border-b border-solid border-ice max-w-[200px]">
+                border-b border-solid border-ice">
                 <input
                 className="textshadow bg-transparent text-aliceblue p-2.5 border-none text-opacity-8 text-sm text-center"
                 type="email"

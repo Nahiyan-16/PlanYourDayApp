@@ -23,11 +23,12 @@ function SignUpPage(){
     };
 
     return (
-        <div className="h-screen text-center flex justify-start">
+        <div className="h-screen text-center flex justify-start xs:flex-col">
             <SideHeader />
-            <div className="flex flex-col justify-center align-center bg-transparent text-charcoal w-[30%] shadow-[inset_0_0_15px_5px_rgba(0,0,0,0.5)]">
-                <h2 className='mb-10 text-5xl'>Registration</h2>
-                <form onSubmit={handleSubmit} className="w-[40%] self-center">
+            <div className="flex flex-col justify-center align-center bg-transparent text-charcoal w-[30%] h-screen
+             shadow-[inset_0_0_15px_5px_rgba(0,0,0,0.5)] custom-screen-3:w-[100%] custom-screen-2:w-[50%]">
+                <h2 className='mb-10 text-5xl custom-screen-1:text-3xl'>Registration</h2>
+                <form onSubmit={handleSubmit} className="self-center">
                     <div className="text-left flex flex-col align-center mt-2.5 mb-1.5 border-b border-solid border-ice">
                         <label className="mb-1.5 text-[1.25rem] self-start">Email</label>
                         <input

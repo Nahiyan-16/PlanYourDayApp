@@ -52,9 +52,8 @@ app.post('/login', async (req, res) => {
       // You can generate a token for the user, set up a session, or perform any other
       // authentication actions here.
       
-      console.log(user)
       // For demonstration purposes, you can send a success message
-      res.status(200).json({ message: 'Login successful' });
+      res.status(200).json({ message: 'Login successful!' });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred while processing your request' });

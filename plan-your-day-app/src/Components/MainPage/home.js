@@ -1,5 +1,15 @@
+import Login from '../LoginPage/loginPage'
+import HomePage from './homePage'
+
 function Home(){
-    return (<div style={{fontSize:"100px"}}>HOME</div>)
+    const signedIn = localStorage.getItem('isLoggedOn') === 'false' ? false : true;
+
+    return (
+        <div>{
+        signedIn ? (<HomePage />) :
+                   (<Login />)
+        }
+    </div>)
 }
 
 export default Home

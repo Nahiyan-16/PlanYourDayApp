@@ -8,7 +8,7 @@ import SignUp from './Components/SignUpPage/signUpPage'
 import ForgotPasswordPage from './Components/LoginPage/forgotPasswordPage';
 
 export default function App() {
-  return (
+  return ( 
     <BrowserRouter>
       <Routes>
         <Route>

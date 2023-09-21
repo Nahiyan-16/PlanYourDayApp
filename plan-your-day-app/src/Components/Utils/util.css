@@ -1,33 +1,32 @@
-.placeholder::placeholder{
-    color: #2f4858;
+.placeholder::placeholder {
+  color: #2f4858;
 }
 
 .textshadow:-webkit-autofill,
-.textshadow:-webkit-autofill:hover, 
-.textshadow:-webkit-autofill:focus, 
-.textshadow:-webkit-autofill:active{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #2f4858;
-    transition: background-color 5000s ease-in-out 0s;
+.textshadow:-webkit-autofill:hover,
+.textshadow:-webkit-autofill:focus,
+.textshadow:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #2f4858;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-.text-opacity-8{
-    opacity: 0.8;
+.text-opacity-8 {
+  opacity: 0.8;
 }
 
-.text-opacity-8:hover{
-    opacity: 1;
+.text-opacity-8:hover {
+  opacity: 1;
 }
 
 .text-shadow-md {
-    text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px black;
 }
 
 .no-underline {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .no-underline:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-

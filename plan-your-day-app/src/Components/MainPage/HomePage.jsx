@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "./HomePageUtils/Sidebar";
+import Greetings from "./HomePageUtils/Greetings";
 
 function HomePage() {
   return (
-    <div className="flex justify-start items-start">
+    <>
       <Sidebar />
-      <div>BODY</div>
-    </div>
+      <Greetings />
+    </>
   );
 }
 

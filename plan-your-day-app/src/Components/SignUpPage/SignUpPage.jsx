@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SideHeader from "../Header/SideHeader";
+import { signUpService } from "../../Services/apiService";
 
 function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -11,26 +12,15 @@ function SignUpPage() {
     e.preventDefault();
     if (confirmPassword === password) {
       try {
-        // Send registration data to the server
-        const response = await fetch("/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
-
-        if (response.ok) {
-          // Registration successful
-          // Redirect to a success page or login page
+        setErrorMessage("");
+        const result = await signUpService(email, password);
+        if (result) {
           window.location.href = "/home";
         } else {
-          const data = await response.json();
-          setErrorMessage(data.error);
+          setErrorMessage("Email already exists!");
         }
       } catch (error) {
-        console.error("Sign Up error:", error);
-        // Handle other errors, e.g., network issues
+        console.error("Sign up failed:", error.message);
       }
     } else {
       setErrorMessage("Passwords do not match");

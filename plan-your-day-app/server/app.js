@@ -7,7 +7,7 @@ const User = require("./models/User"); // Import the User model
 const bcrypt = require("bcrypt");
 
 const app = express();
-const port = process.env.PORT || 3001; // Backend server port
+const port = 3001; // Backend server port
 
 require("dotenv").config();
 
@@ -18,7 +18,6 @@ const password = process.env.MONGO_PASSWORD;
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB (replace 'your-database-name' with your actual database name)
 mongoose.connect(
   `mongodb+srv://${username}:${password}@cluster0.u1xane1.mongodb.net/`,
   {

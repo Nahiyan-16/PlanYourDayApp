@@ -5,10 +5,6 @@ function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Send a request to your backend to initiate the password reset process
@@ -32,12 +28,12 @@ function ForgotPasswordPage() {
                 border-b border-solid border-ice"
           >
             <input
-              className="textshadow bg-transparent text-aliceblue p-2.5 border-none text-opacity-8 text-sm text-center"
+              className="textshadow bg-transparent text-charcoal p-2.5 border-none text-opacity-8 text-sm text-center"
               type="email"
               name="email"
               value={email}
               placeholder="Enter your email"
-              onChange={handleEmailChange}
+              onChange={(e) => setEmail(e.target.value)}
               autoFocus
               required
             />

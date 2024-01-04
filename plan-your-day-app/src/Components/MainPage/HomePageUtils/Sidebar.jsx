@@ -5,7 +5,7 @@ export default function Sidebar() {
 
   const sidebar = (
     <div className="bg-charcoal h-screen w-[15%] text-center p-[10px]">
-      <h1 className="text-2xl text-aliceblue">Plan Your Day!</h1>
+      <h1 className="text-2xl text-aliceblue underline">Plan Your Day!</h1>
     </div>
   );
 
@@ -13,16 +13,16 @@ export default function Sidebar() {
     setSidebarToggle(!sidebarToggle);
   };
 
-  const buttonClass = `w-[5%] p-[10px] text-5xl fixed ${
+  const buttonClass = `w-[3%] p-[5px] text-5xl fixed ${
     sidebarToggle ? "text-aliceblue" : ""
   }`;
 
   return (
-    <>
+    <div className="flex justify-start items-start h-[50px]">
       {sidebarToggle && sidebar}
       <button className={buttonClass} onClick={handleClick}>
         ≡
       </button>
-    </>
+    </div>
   );
 }

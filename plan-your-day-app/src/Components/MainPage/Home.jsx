@@ -2,8 +2,8 @@ import Login from "../LoginPage/LoginPage";
 import HomePage from "./HomePage";
 
 function Home() {
-  const signedIn =
-    localStorage.getItem("isLoggedOn") === "false" ? false : true;
+  const isLoggedIn = localStorage.getItem("isLoggedOn");
+  const signedIn = isLoggedIn ? (isLoggedIn === "false" ? false : true) : false;
 
   return <div>{signedIn ? <HomePage /> : <Login />}</div>;
 }

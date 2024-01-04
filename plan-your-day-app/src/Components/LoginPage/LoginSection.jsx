@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Utils/util.css";
+import { loginService } from "../../Services/apiService";
 
 function LoginSection() {
   const [email, setEmail] = useState("");
@@ -10,23 +11,16 @@ function LoginSection() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }), // Send email and password as JSON data
-      });
-      if (response.ok) {
-        // Login was successful, handle the response (e.g., redirect to a dashboard)
+      const response = await loginService(email, password);
+      if (response) {
+        localStorage.setItem("isLoggedOn", true);
         window.location.href = "/home";
       } else {
-        // Login failed, handle the response (e.g., show an error message)
-        const data = await response.json();
-        setErrorMessage(`Error: ${data.error}`);
+        setErrorMessage(`Error has occured!`);
       }
     } catch (error) {
-      window.location.href = "/signup";
+      setErrorMessage(`Invalid credentials!`);
+      setTimeout(() => setErrorMessage(""), 2500);
     }
   };
 

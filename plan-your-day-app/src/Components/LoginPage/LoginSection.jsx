@@ -11,9 +11,10 @@ function LoginSection() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await loginService(email, password);
-      if (response) {
+      const username = await loginService(email, password);
+      if (username) {
         localStorage.setItem("isLoggedOn", true);
+        localStorage.setItem("Username", username);
         window.location.href = "/home";
       } else {
         setErrorMessage(`Error has occured!`);

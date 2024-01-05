@@ -1,13 +1,13 @@
 const BASE_URL = "http://localhost:3001";
 
-export const signUpService = async (email, password) => {
+export const signUpService = async (email, password, username) => {
   try {
     const response = await fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, username }),
     });
 
     if (!response.ok) {
@@ -31,9 +31,11 @@ export const loginService = async (email, password) => {
       body: JSON.stringify({ email, password }),
     });
     if (!response.ok) {
-      return false;
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-    return true;
+    const data = await response.json();
+    const { message, username } = data;
+    return username;
   } catch (error) {
     console.error("Error:", error.message);
   }

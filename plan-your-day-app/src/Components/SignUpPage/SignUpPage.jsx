@@ -3,6 +3,7 @@ import SideHeader from "../Header/SideHeader";
 import { signUpService } from "../../Services/apiService";
 
 function SignUpPage() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -13,7 +14,7 @@ function SignUpPage() {
     if (confirmPassword === password) {
       try {
         setErrorMessage("");
-        const result = await signUpService(email, password);
+        const result = await signUpService(email, password, name);
         if (result) {
           window.location.href = "/home";
         } else {
@@ -39,6 +40,19 @@ function SignUpPage() {
         </h2>
         <form onSubmit={handleRegistration} className="self-center">
           <div className="text-left flex flex-col align-center mt-2.5 mb-1.5 border-b border-solid border-ice">
+            <label className="mb-1.5 text-[1.25rem] self-start">Name</label>
+            <input
+              className="bg-transparent p-2.5 border-none text-opacity-8 text-[.80rem]"
+              type="text"
+              name="text"
+              placeholder="Type your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              autoFocus
+              required
+            />
+          </div>
+          <div className="text-left flex flex-col align-center mt-2.5 mb-1.5 border-b border-solid border-ice">
             <label className="mb-1.5 text-[1.25rem] self-start">Email</label>
             <input
               className="bg-transparent p-2.5 border-none text-opacity-8 text-[.80rem]"
@@ -47,7 +61,6 @@ function SignUpPage() {
               placeholder="Type your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              autoFocus
               required
             />
           </div>

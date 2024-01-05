@@ -56,7 +56,9 @@ app.post("/login", async (req, res) => {
     // authentication actions here.
 
     // For demonstration purposes, you can send a success message
-    res.status(200).json({ message: "Login successful!" });
+    res
+      .status(200)
+      .json({ message: "Login successful!", username: user.username });
   } catch (error) {
     console.error(error);
     res
@@ -67,8 +69,7 @@ app.post("/login", async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   try {
-    const { email, password } = req.body;
-
+    const { email, password, username } = req.body;
     // Check if the email is already in use
     const existingUser = await User.findOne({ email });
 
@@ -80,7 +81,7 @@ app.post("/signup", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new user document
-    const newUser = new User({ email, password: hashedPassword });
+    const newUser = new User({ email, password: hashedPassword, username });
 
     await newUser.save();
 

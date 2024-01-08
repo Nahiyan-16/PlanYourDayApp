@@ -5,11 +5,11 @@ import HomePageSchedule from "./HomePageUtils/HomePageSchedule";
 
 function HomePage() {
   return (
-    <>
+    <div>
       <Sidebar />
       <Greetings />
       <HomePageSchedule />
-    </>
+    </div>
   );
 }
 

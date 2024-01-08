@@ -6,6 +6,7 @@ import LoginPage from "./Components/LoginPage/LoginPage";
 import Home from "./Components/MainPage/Home";
 import SignUp from "./Components/SignUpPage/SignUpPage";
 import ForgotPasswordPage from "./Components/LoginPage/ForgotPasswordPage";
+import Schedule from "./Components/MainPage/Schedule/Schedule";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="home" element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="schedule" element={<Schedule />} />
           <Route
             path="*"
             element={<h1 style={{ textAlign: "center" }}>NOTHING HERE</h1>}

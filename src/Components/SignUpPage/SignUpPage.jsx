@@ -14,7 +14,7 @@ function SignUpPage() {
     if (confirmPassword === password) {
       try {
         setErrorMessage("");
-        const result = await signUpService(email, password, name);
+        const result = await signUpService(email, password, name, []);
         if (result) {
           window.location.href = "/home";
         } else {

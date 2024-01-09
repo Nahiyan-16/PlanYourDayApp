@@ -13,8 +13,8 @@ function LoginSection() {
     try {
       const username = await loginService(email, password);
       if (username) {
-        localStorage.setItem("isLoggedOn", true);
-        localStorage.setItem("Username", username);
+        const userInfo = { email: email, isLoggedOn: true, username: username };
+        localStorage.setItem("User Information", JSON.stringify(userInfo));
         window.location.href = "/home";
       } else {
         setErrorMessage(`Error has occured!`);

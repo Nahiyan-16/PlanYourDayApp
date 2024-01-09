@@ -1,7 +1,8 @@
 import React from "react";
 
 const Greetings = () => {
-  const name = localStorage.getItem("Username");
+  const userObj = JSON.parse(localStorage.getItem("User Information"));
+  const name = userObj.username;
   const d = new Date();
   const day = d.getDay();
   const days = [

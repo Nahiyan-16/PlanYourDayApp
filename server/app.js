@@ -80,8 +80,14 @@ app.post("/signup", async (req, res) => {
     // Hash the password (using bcrypt or your preferred library)
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create a new user document
-    const newUser = new User({ email, password: hashedPassword, username });
+    const schedule = [];
+
+    const newUser = new User({
+      email,
+      password: hashedPassword,
+      username,
+      schedule,
+    });
 
     await newUser.save();
 
@@ -89,6 +95,36 @@ app.post("/signup", async (req, res) => {
   } catch (error) {
     console.error("Registration error:", error);
     res.status(500).json({ error: "An error occurred during registration" });
+  }
+});
+
+app.post("/getSchedule", async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: "No user was found" });
+    }
+
+    res.json({ schedule: user.schedule });
+  } catch (error) {
+    console.error("Scheduling error:", error);
+    res.status(500).json({ error: "An error occured during getting schedule" });
+  }
+});
+
+app.post("/setSchedule", async (req, res) => {
+  try {
+    const { email, formData } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: "No user was found" });
+    }
+    user.schedule.push(formData);
+    await user.save();
+  } catch (error) {
+    console.error("Scheduling error:", error);
+    res.status(500).json({ error: "An error occured during setting schedule" });
   }
 });
 

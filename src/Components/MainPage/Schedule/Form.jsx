@@ -25,22 +25,10 @@ const Form = ({ onFormSubmit }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //Task 1
     onFormSubmit(formData);
-
-    //Task 2
-    try {
-      const existingData = sessionStorage.getItem("formData");
-      const existingDataArray = existingData ? JSON.parse(existingData) : [];
-      const updatedDataArray = [...existingDataArray, formData];
-      sessionStorage.setItem("formData", JSON.stringify(updatedDataArray));
-    } catch (error) {
-      console.error("Error updating session storage:", error);
-    }
-    //Task 3
-    //....
   };
   return (
     <div className="border min-h-[60vh] mx-10 mt-5 min-w-[25%] bg-charcoal text-aliceblue p-8 rounded-2xl">

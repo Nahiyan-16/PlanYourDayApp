@@ -7,7 +7,7 @@ import {
 const DisplaySchedule = ({ schedule }) => {
   const [allFormData, setAllFormData] = useState([]);
   const storedVal = sessionStorage.getItem("formData");
-  const formAry = storedVal ? JSON.parse(storedVal).splice(-10) : [];
+  const formAry = storedVal ? JSON.parse(storedVal).splice(-15) : [];
 
   useEffect(() => {
     setAllFormData(formAry.reverse());

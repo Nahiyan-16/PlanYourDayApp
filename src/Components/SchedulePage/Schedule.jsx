@@ -1,11 +1,8 @@
 import { useState } from "react";
 import Form from "./Form";
 import DisplaySchedule from "./DisplaySchedule";
-import Navbar from "../../Navbar/Navbar";
-import {
-  getScheduleService,
-  setScheduleService,
-} from "../../../Services/apiService";
+import Navbar from "../Navbar/Navbar";
+import { setScheduleService } from "../../Services/apiService";
 
 const Schedule = () => {
   const [schedule, setSchedule] = useState();
@@ -25,8 +22,7 @@ const Schedule = () => {
       console.error("Error updating session storage:", error);
     }
     //Task 3
-    const userObj = JSON.parse(localStorage.getItem("User Information"));
-    await setScheduleService(userObj.email, data);
+    await setScheduleService(email, data);
   };
 
   return (

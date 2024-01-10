@@ -31,12 +31,12 @@ const Form = ({ onFormSubmit }) => {
     onFormSubmit(formData);
   };
   return (
-    <div className="border min-h-[60vh] mx-10 mt-5 min-w-[25%] bg-charcoal text-aliceblue p-8 rounded-2xl">
+    <div className="border min-h-[60vh] mx-10 mt-5 min-w-[25%] bg-[#CC313D] text-[#FCF6F5] p-8 rounded-2xl">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center items-center"
       >
-        <div className="text-3xl mb-4 underline">Enter Event</div>
+        <div className="text-3xl mb-4">Create an Event!</div>
         <label htmlFor="eventDate">Date</label>
         <input
           type="date"
@@ -88,7 +88,7 @@ const Form = ({ onFormSubmit }) => {
         <input
           type="submit"
           value="Create Event"
-          className="bg-aliceblue text-charcoal py-3 px-4 rounded-2xl hover:shadow-2xl hover:scale-[1.03] transition duration-150 cursor-pointer"
+          className="bg-[#FCF6F5] text-charcoal underline py-3 px-4 rounded-2xl hover:shadow-2xl hover:scale-[1.03] transition duration-150 cursor-pointer"
         />
       </form>
     </div>

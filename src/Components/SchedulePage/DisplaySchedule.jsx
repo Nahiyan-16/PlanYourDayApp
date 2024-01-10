@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   formatDate,
   convertToStandardTime,
-} from "../../Utils/DateAndTimeFormatter";
+} from "../Utils/DateAndTimeFormatter";
 
 const DisplaySchedule = ({ schedule }) => {
   const [allFormData, setAllFormData] = useState([]);
@@ -14,11 +14,11 @@ const DisplaySchedule = ({ schedule }) => {
   }, [schedule]);
 
   return (
-    <div className="min-h-[70vh] mx-10 mt-5 min-w-[60%] p-5 bg-charcoal text-aliceblue rounded-xl">
-      <div className="text-2xl mb-5">Recent Added Schedules:</div>
-      <div className="min-h-[60vh]">
-        <table className="w-[100%]">
-          <thead>
+    <div className="border-2 min-h-[70vh] mx-10 mt-5 min-w-[60%] p-5 bg-[white] text-charcoal rounded-xl">
+      <div className="text-2xl mb-5 text-center">Recent Added Events</div>
+      <div className="min-h-[60vh] flex items-start justify-center px-10 pt-3">
+        <table className="w-[90%] rounded-2xl">
+          <thead className="">
             <tr>
               <th className="w-[33%]">Title</th>
               <th className="w-[33%]">Date</th>

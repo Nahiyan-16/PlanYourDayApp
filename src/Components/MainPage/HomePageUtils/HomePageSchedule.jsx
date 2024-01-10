@@ -1,8 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Column from "./Column";
 import { convertToStandardTime } from "../../Utils/DateAndTimeFormatter";
 
 const HomePageSchedule = () => {
+  const [clickedEvent, setClickedEvent] = useState(null);
+  const [showEvent, setShowEvent] = useState(null);
+
   let scheduleAry = JSON.parse(sessionStorage.getItem("formData"));
   let morningSchedule = [];
   let eveningSchedule = [];
@@ -67,45 +71,54 @@ const HomePageSchedule = () => {
     splitSchedule();
   }
 
+  const handleClick = (event) => {
+    setClickedEvent(true);
+    setShowEvent(event);
+  };
+
+  const handleClose = () => {
+    setClickedEvent(null);
+    setShowEvent(null);
+  };
+
   return (
     <div className="border-2 border-black rounded-lg shadow-2xl min-h-[30vh] m-20 flex flex-col justify-center items-center text-xl text-center p-5">
       {hasPlansForToday ? (
         <>
+          {clickedEvent ? (
+            <div
+              className="bg-charcoal absolute top-[30%] left-[42%] z-50 text-aliceblue w-[300px] h-[40vh] flex flex-col rounded-2xl"
+              style={{ boxShadow: "0 0 50px #111111" }}
+            >
+              <button className="self-end m-2" onClick={handleClose}>
+                ❌
+              </button>
+              {showEvent.eventTitle} @{" "}
+              {convertToStandardTime(showEvent.eventTime)}
+              <div className="bg-aliceblue text-charcoal h-[60%] mt-2 p-1 mx-5">
+                {showEvent.eventBody}
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
           <h2 className="mb-5">Here's what you have planned for today</h2>
           <div className="w-[100%] min-h-[20vh] flex">
-            <div className="border w-[33%]">
-              <h2 className="font-bold">Morning 🍳</h2>
-              {morningSchedule.map((event, index) => (
-                <div key={index}>
-                  <h1 className="underline">
-                    {convertToStandardTime(event.eventTime)}
-                  </h1>
-                  <h2>{event.eventTitle}</h2>
-                </div>
-              ))}
-            </div>
-            <div className="border w-[33%]">
-              <h2 className="font-bold">Evening 🌞</h2>
-              {eveningSchedule.map((event, index) => (
-                <div key={index}>
-                  <h1 className="underline">
-                    {convertToStandardTime(event.eventTime)}
-                  </h1>
-                  <h2>{event.eventTitle}</h2>
-                </div>
-              ))}
-            </div>
-            <div className="border w-[33%]">
-              <h2 className="font-bold">Night 🌙</h2>
-              {nightSchedule.map((event, index) => (
-                <div key={index}>
-                  <h1 className="underline">
-                    {convertToStandardTime(event.eventTime)}
-                  </h1>
-                  <h2>{event.eventTitle}</h2>
-                </div>
-              ))}
-            </div>
+            <Column
+              title="Morning 🍳"
+              scheduleAry={morningSchedule}
+              onItemClick={(event) => handleClick(event)}
+            />
+            <Column
+              title="Evening 🌞"
+              scheduleAry={eveningSchedule}
+              onItemClick={(event) => handleClick(event)}
+            />
+            <Column
+              title="Night 🌙"
+              scheduleAry={nightSchedule}
+              onItemClick={(event) => handleClick(event)}
+            />
           </div>
           <Link
             to="/schedule"

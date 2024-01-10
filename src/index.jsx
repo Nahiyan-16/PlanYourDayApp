@@ -6,7 +6,7 @@ import LoginPage from "./Components/LoginPage/LoginPage";
 import Home from "./Components/MainPage/Home";
 import SignUp from "./Components/SignUpPage/SignUpPage";
 import ForgotPasswordPage from "./Components/LoginPage/ForgotPasswordPage";
-import Schedule from "./Components/MainPage/Schedule/Schedule";
+import Schedule from "./Components/SchedulePage/Schedule";
 
 export default function App() {
   return (

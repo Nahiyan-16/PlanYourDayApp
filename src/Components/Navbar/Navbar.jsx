@@ -8,7 +8,7 @@ const Navbar = () => {
     window.location.href = "/home";
   };
   return (
-    <div className="h-[9vh] mb-5 relative px-5">
+    <div className="h-[9vh] relative px-5">
       <button
         className="border px-2 py-2 text-2xl my-2 shadow-md hover:shadow-xl hover:scale-[1.03] transition duration-150"
         style={{ borderRadius: "50%" }}

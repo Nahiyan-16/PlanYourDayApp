@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Utils/util.css";
-import { loginService } from "../../Services/apiService";
+import { loginService, getScheduleService } from "../../Services/apiService";
 
 function LoginSection() {
   const [email, setEmail] = useState("");
@@ -15,6 +15,8 @@ function LoginSection() {
       if (username) {
         const userInfo = { email: email, isLoggedOn: true, username: username };
         localStorage.setItem("User Information", JSON.stringify(userInfo));
+        const schedule = await getScheduleService(email);
+        sessionStorage.setItem("formData", JSON.stringify(schedule.schedule));
         window.location.href = "/home";
       } else {
         setErrorMessage(`Error has occured!`);

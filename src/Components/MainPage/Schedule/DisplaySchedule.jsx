@@ -14,9 +14,9 @@ const DisplaySchedule = ({ schedule }) => {
   }, [schedule]);
 
   return (
-    <div className="border min-h-[70vh] mx-10 mt-5 min-w-[60%] p-5">
-      <div className="text-2xl">Recent Added Schedules:</div>
-      <div className="border min-h-[60vh]">
+    <div className="min-h-[70vh] mx-10 mt-5 min-w-[60%] p-5 bg-charcoal text-aliceblue rounded-xl">
+      <div className="text-2xl mb-5">Recent Added Schedules:</div>
+      <div className="min-h-[60vh]">
         <table className="w-[100%]">
           <thead>
             <tr>
@@ -29,7 +29,7 @@ const DisplaySchedule = ({ schedule }) => {
             {allFormData.map((item, index) => (
               <tr key={index}>
                 <td>{item.eventTitle}</td>
-                <td>{formatDate(item.eventDate)}</td>
+                <td>{formatDate(item.eventDate.split("T")[0])}</td>
                 <td>{convertToStandardTime(item.eventTime)}</td>
               </tr>
             ))}

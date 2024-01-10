@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import Sidebar from "../HomePageUtils/Sidebar";
+import { useState } from "react";
 import Form from "./Form";
 import DisplaySchedule from "./DisplaySchedule";
+import Navbar from "../../Navbar/Navbar";
 import {
   getScheduleService,
   setScheduleService,
@@ -12,16 +12,6 @@ const Schedule = () => {
 
   const userObj = JSON.parse(localStorage.getItem("User Information"));
   const email = userObj.email;
-
-  useEffect(() => {
-    getSchedule(email);
-  }, []);
-
-  const getSchedule = async (email) => {
-    const schedule = await getScheduleService(email);
-    sessionStorage.setItem("formData", JSON.stringify(schedule.schedule));
-    setSchedule(schedule);
-  };
 
   const handleSubmit = async (data) => {
     setSchedule(data);
@@ -41,7 +31,7 @@ const Schedule = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Navbar />
       <div className="text-5xl flex justify-center items-center">
         Let's start planning!
       </div>

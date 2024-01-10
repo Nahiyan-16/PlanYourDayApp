@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import Sidebar from "./HomePageUtils/Sidebar";
 import Greetings from "./HomePageUtils/Greetings";
 import HomePageSchedule from "./HomePageUtils/HomePageSchedule";
+import Navbar from "../Navbar/Navbar";
 
 function HomePage() {
   return (
     <div>
-      <Sidebar />
+      <Navbar />
       <Greetings />
       <HomePageSchedule />
     </div>

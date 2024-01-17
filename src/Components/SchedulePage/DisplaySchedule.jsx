@@ -28,9 +28,15 @@ const DisplaySchedule = ({ schedule }) => {
           <tbody className="text-center">
             {allFormData.map((item, index) => (
               <tr key={index}>
-                <td>{item.eventTitle}</td>
+                <td className="pb-2">{item.eventTitle}</td>
                 <td>{formatDate(item.eventDate.split("T")[0])}</td>
                 <td>{convertToStandardTime(item.eventTime)}</td>
+                <td className="border-red-500 pr-3">
+                  <button>✏️</button>
+                </td>
+                <td>
+                  <button className="w-[20px] border-t-[6px] border-red-500"></button>
+                </td>
               </tr>
             ))}
           </tbody>

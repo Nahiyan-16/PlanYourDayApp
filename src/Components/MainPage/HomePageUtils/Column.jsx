@@ -27,7 +27,7 @@ const Column = ({ title, scheduleAry, onItemClick }) => {
             {convertToStandardTime(event.eventTime)}
           </h1>
           <h2>{event.eventTitle}</h2>
-          {hoveredEvent === event && (
+          {hoveredEvent === event && event.eventBody && (
             <div
               className="absolute bg-white border p-2 shadow-md top-full left-100 z-50 text-sm"
               style={{ zIndex: 50 }}

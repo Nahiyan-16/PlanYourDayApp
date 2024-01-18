@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         aliceblue: "#f0f8ff",
         charcoal: "#2F4858",
+        snow: "#FCF6F5",
+        rustyred: "#CC313D",
         // Add more custom colors if needed
       },
       screens: {

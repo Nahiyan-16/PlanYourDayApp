@@ -15,7 +15,12 @@ const DisplaySchedule = ({ schedule }) => {
 
   return (
     <div className="border-2 min-h-[70vh] mx-10 mt-5 min-w-[60%] p-5 bg-[white] text-charcoal rounded-xl">
-      <div className="text-2xl mb-5 text-center">Recent Added Events</div>
+      <div className="flex justify-center items-center w-[62%] ml-auto">
+        <div className="text-2xl mb-5">Recent Added Events</div>
+        <button className="text-2xl mb-5 ml-auto bg-rustyred text-snow py-2 px-3 rounded-2xl hover:shadow-2xl hover:scale-[1.03] hover:underline transition duration-150 cursor-pointer">
+          Edit
+        </button>
+      </div>
       <div className="min-h-[60vh] flex items-start justify-center px-10 pt-3">
         <table className="w-[90%] rounded-2xl">
           <thead className="">
@@ -31,12 +36,6 @@ const DisplaySchedule = ({ schedule }) => {
                 <td className="pb-2">{item.eventTitle}</td>
                 <td>{formatDate(item.eventDate.split("T")[0])}</td>
                 <td>{convertToStandardTime(item.eventTime)}</td>
-                <td className="border-red-500 pr-3">
-                  <button>✏️</button>
-                </td>
-                <td>
-                  <button className="w-[20px] border-t-[6px] border-red-500"></button>
-                </td>
               </tr>
             ))}
           </tbody>

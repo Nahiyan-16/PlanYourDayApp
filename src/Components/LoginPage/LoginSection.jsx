@@ -19,10 +19,10 @@ function LoginSection() {
         sessionStorage.setItem("formData", JSON.stringify(schedule.schedule));
         window.location.href = "/home";
       } else {
-        setErrorMessage(`Error has occured!`);
+        setErrorMessage(`Invalid credentials!`);
       }
     } catch (error) {
-      setErrorMessage(`Invalid credentials!`);
+      setErrorMessage(`Error has occured!`);
       setTimeout(() => setErrorMessage(""), 2500);
     }
   };

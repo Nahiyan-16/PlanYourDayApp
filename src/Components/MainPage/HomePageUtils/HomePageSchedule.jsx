@@ -16,8 +16,8 @@ const HomePageSchedule = () => {
   const checkForTodaySchedule = (events) => {
     const hasEventForToday = events.some((event) => {
       const eventDate = event.eventDate.split("T")[0];
-      var tzoffset = new Date().getTimezoneOffset() * 60000;
-      var localDate = new Date(Date.now() - tzoffset)
+      const tzoffset = new Date().getTimezoneOffset() * 60000;
+      const localDate = new Date(Date.now() - tzoffset)
         .toISOString()
         .slice(0, -1)
         .split("T")[0];

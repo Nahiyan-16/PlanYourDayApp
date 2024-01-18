@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 
 const Form = ({ onFormSubmit }) => {
-  const today = new Date().toISOString().split("T")[0];
+  const tzoffset = new Date().getTimezoneOffset() * 60000;
+  const localDate = new Date(Date.now() - tzoffset)
+    .toISOString()
+    .slice(0, -1)
+    .split("T")[0];
 
   const [formData, setFormData] = useState({
     eventDate: "",
@@ -13,9 +17,9 @@ const Form = ({ onFormSubmit }) => {
   useEffect(() => {
     setFormData((prevData) => ({
       ...prevData,
-      eventDate: today,
+      eventDate: localDate,
     }));
-  }, [today]);
+  }, [localDate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +35,7 @@ const Form = ({ onFormSubmit }) => {
     onFormSubmit(formData);
   };
   return (
-    <div className="border min-h-[60vh] mx-10 mt-5 min-w-[25%] bg-[#CC313D] text-[#FCF6F5] p-8 rounded-2xl">
+    <div className="border min-h-[60vh] mx-10 mt-5 min-w-[25%] bg-rustyred text-snow p-8 rounded-2xl">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center items-center"
@@ -44,7 +48,7 @@ const Form = ({ onFormSubmit }) => {
           name="eventDate"
           value={formData.eventDate}
           onChange={handleChange}
-          min={today}
+          min={localDate}
           required
           className="text-charcoal rounded p-1"
         />
@@ -88,7 +92,7 @@ const Form = ({ onFormSubmit }) => {
         <input
           type="submit"
           value="Create Event"
-          className="bg-[#FCF6F5] text-charcoal underline py-3 px-4 rounded-2xl hover:shadow-2xl hover:scale-[1.03] transition duration-150 cursor-pointer"
+          className="bg-[#FCF6F5] text-charcoal hover:underline py-3 px-4 rounded-2xl hover:shadow-2xl hover:scale-[1.03] transition duration-150 cursor-pointer"
         />
       </form>
     </div>
